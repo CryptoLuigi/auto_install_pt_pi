@@ -33,12 +33,16 @@ function javaremove()
 
 function npmsetup()
 {
-	sudo apt-get install npm -y
-	sudo npm install pm2@latest -g
+	#sudo apt-get install npm -y
+	#sudo npm install pm2@latest -g
 }
 
 function ptsetup()
 {
+	sudo apt-get install dirmngr
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key EEA14886
+	echo -e "\ndeb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list
+	echo -e "\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/source.list
 	wget $lastestdownload
 	sudo apt-get install unzip -y
 	unzip /var/opt/$server/ProfitTrailer-$version.zip
@@ -46,6 +50,11 @@ function ptsetup()
 	rmdir ProfitTrailer-$version
 	rm ProfitTrailer-$version.zip
 	chmod +x ProfitTrailer.jar
+	touch /var/opt/$server/ptstart-$server.sh
+	echo "#!/bin/bash" >> /var/opt/$server/ptstart-$server.sh
+	echo -e "\ncd /var/opt/$server/" >> /var/opt/$server/ptstart-$server.sh
+	echo -e "\nsudo java -Djava.net.preferIPv4Stack=true -Dsun.stdout.encoding=UTF-8 -Dio.netty.allocator.numDirectArenas=0 -Djdk.nio.maxCachedBufferSize=262144 -XX:+UseSerialGC -XX:+UseStringDeduplication -Xms64m -Xmx512m -XX:CompressedClassSpaceSize=300m -XX:MaxMetaspaceSize=128m -jar ProfitTrailer.jar" >> /var/opt/$server/ptstart-$server.sh
+	sudo chmod +x /var/opt/$server/ptstart-$server.sh
 }
 
 function portsetup()
@@ -55,9 +64,7 @@ function portsetup()
 
 function ptstart()
 {
-	pm2 start pm2-ProfitTrailer.json
-	pm2 save
-	pm2 startup
+	/var/opt/$server/ptstart-$server.sh
 }
 
 function applyproperties()
@@ -80,11 +87,11 @@ if [[ $# -eq 0 ]]; then
 		javasetup
 	fi
 	
-	echo
-	read -p "Do you want install npm?(y/n)" -n 1 -r
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		npmsetup
-	fi
+	#echo
+	#read -p "Do you want install npm?(y/n)" -n 1 -r
+	#if [[ $REPLY =~ ^[Yy]$ ]]; then
+		#npmsetup
+	#fi
 
 	echo
 	read -p "Do you want install Profit Trailer $version?(y/n)" -n 1 -r
@@ -183,7 +190,7 @@ shift
 if [[ $1 =~ ^[Yy]$ ]]; then
 	javaremove
 	javasetup
-	npmsetup
+	#npmsetup
 	ptsetup
 	applyproperties
 	shift
