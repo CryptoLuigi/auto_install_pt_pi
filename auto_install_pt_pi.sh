@@ -1,5 +1,6 @@
 #!/bin/bash
-#Script for the automatic installation for Profit Trailer on Ubuntu
+#Script for the automatic installation for Profit Trailer for the Raspberry Pi
+#Script originally ported from my Ubuntu script
 #Script By CryptoLuigi (Michael Ruperto)
 #Date: 2019-04-01
 #Updated: 2019-04-03
