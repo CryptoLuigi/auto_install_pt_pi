@@ -1,4 +1,4 @@
-# Automatic installation of Profit Trailer on Ubuntu
+# Automatic installation of Profit Trailer for the Raspberry Pi
 ---
 ## By: CryptoLuigi
 
@@ -24,20 +24,20 @@ Without registering your default API key with bot will not start.
  
 For a guided installation enter the following 3 commands
 ```
-wget https://raw.githubusercontent.com/CryptoLuigi/auto_install_pt_ubuntu/master/auto_install_pt_ubuntu.sh
+wget https://raw.githubusercontent.com/CryptoLuigi/auto_install_pt_pi/master/auto_install_pt_pi.sh
 
-chmod +x ./auto_install_pt_ubuntu.sh
+chmod +x ./auto_install_pt_pi.sh
 
-./auto_install_pt_ubuntu.sh
+./auto_install_pt_pi.sh
  ```
  
 For automatic installation enter all the required arguments 
 ```
 Example usage
 
-./auto_install_pt_ubuntu.sh botname [y/n] Port [1-5] Licensekey DEFAPI DEFSEC TRADAPI TRADSEC [y-n]
+./auto_install_pt_pi.sh botname [y/n] Port [1-5] Licensekey DEFAPI DEFSEC TRADAPI TRADSEC [y-n]
 
-./auto_install_pt_ubuntu.sh MoneyMachine n 8085 1 Scv32d3 d323rd ds3df3 s3refs3 sdf3sdf3 y
+./auto_install_pt_pi.sh MoneyMachine n 8085 1 Scv32d3 d323rd ds3df3 s3refs3 sdf3sdf3 y
 
 
 Note TRADAPI and TRADSEC are now optional. Use 0 value to exclude.
