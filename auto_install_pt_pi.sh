@@ -33,7 +33,7 @@ function javaremove()
 
 function ptsetup()
 {
-	sudo apt-get install dirmngr
+	sudo apt-get install dirmngr -y
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key EEA14886
 	echo -e "\ndeb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list
 	echo -e "\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/source.list
