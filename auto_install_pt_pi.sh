@@ -31,12 +31,6 @@ function javaremove()
 	sudo apt-get purge nodejs -y
 }
 
-function npmsetup()
-{
-	#sudo apt-get install npm -y
-	#sudo npm install pm2@latest -g
-}
-
 function ptsetup()
 {
 	sudo apt-get install dirmngr
