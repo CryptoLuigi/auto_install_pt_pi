@@ -55,6 +55,7 @@ function ptsetup()
 	echo -e "\ncd /var/opt/$server/" >> /var/opt/$server/ptstart-$server.sh
 	echo -e "\nsudo java -Djava.net.preferIPv4Stack=true -Dsun.stdout.encoding=UTF-8 -Dio.netty.allocator.numDirectArenas=0 -Djdk.nio.maxCachedBufferSize=262144 -XX:+UseSerialGC -XX:+UseStringDeduplication -Xms64m -Xmx512m -XX:CompressedClassSpaceSize=300m -XX:MaxMetaspaceSize=128m -jar ProfitTrailer.jar" >> /var/opt/$server/ptstart-$server.sh
 	sudo chmod +x /var/opt/$server/ptstart-$server.sh
+	echo -e "\nsudo baash /var/opt/$server/ptstart-$server.sh" >> /etc/rc.local
 }
 
 function portsetup()
