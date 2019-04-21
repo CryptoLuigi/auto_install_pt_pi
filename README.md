@@ -44,4 +44,9 @@ Example usage
 First [y/n] is if this is the first install. If yes will install Java.
 Last [y/n] is if you want to start up Profit trailer now
  ```
- 
+
+
+Here is a video guide: https://www.youtube.com/watch?v=ScjK6YtgnJE
+
+
+[![Profit Trailer Tutorial: Automatic setup Raspberry Pi 2019](https://img.youtube.com/vi/ScjK6YtgnJE/0.jpg)](https://www.youtube.com/watch?v=ScjK6YtgnJE "Profit Trailer Tutorial: Automatic setup Raspberry Pi 2019")
