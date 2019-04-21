@@ -49,7 +49,7 @@ function ptsetup()
 	echo -e "\ncd /var/opt/$server/" >> /var/opt/$server/ptstart-$server.sh
 	echo -e "\nsudo java -Djava.net.preferIPv4Stack=true -Dsun.stdout.encoding=UTF-8 -Dio.netty.allocator.numDirectArenas=0 -Djdk.nio.maxCachedBufferSize=262144 -XX:+UseSerialGC -XX:+UseStringDeduplication -Xms64m -Xmx512m -XX:CompressedClassSpaceSize=300m -XX:MaxMetaspaceSize=128m -jar ProfitTrailer.jar" >> /var/opt/$server/ptstart-$server.sh
 	sudo chmod +x /var/opt/$server/ptstart-$server.sh
-	echo -e "\nsudo baash /var/opt/$server/ptstart-$server.sh" >> /etc/rc.local
+	echo -e "\nsudo bash /var/opt/$server/ptstart-$server.sh" >> /etc/rc.local
 }
 
 function portsetup()
@@ -155,12 +155,12 @@ if [[ $# -eq 0 ]]; then
 		echo
 		read -p "Enter your Default API secret key: " default_api_secret
 		echo "$default_api_secret" | sed -i -e"s/^default_api_secret =.*/default_api_secret = $default_api_secret/" /var/opt/$server/application.properties
-		echo
-		read -p "Enter your second API key: " trading_api_key
-		echo "$trading_api_key" | sed -i -e"s/^trading_api_key =.*/trading_api_key = $trading_api_key/" /var/opt/$server/application.properties
-		echo
-		read -p "Enter your second API secret key: " trading_api_secret
-		echo "$trading_api_secret" | sed -i -e"s/^trading_api_secret =.*/trading_api_secret = $trading_api_secret/" /var/opt/$server/application.properties
+		#echo
+		#read -p "Enter your second API key: " trading_api_key
+		#echo "$trading_api_key" | sed -i -e"s/^trading_api_key =.*/trading_api_key = $trading_api_key/" /var/opt/$server/application.properties
+		#echo
+		#read -p "Enter your second API secret key: " trading_api_secret
+		#echo "$trading_api_secret" | sed -i -e"s/^trading_api_secret =.*/trading_api_secret = $trading_api_secret/" /var/opt/$server/application.properties
 	fi
 
 	echo
